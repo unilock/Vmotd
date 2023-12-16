@@ -27,7 +27,7 @@ hs_err_pid*
 build/
 run/
 
-# Visual Studio Code 
+# Visual Studio Code
 
 .settings/
 .classpath

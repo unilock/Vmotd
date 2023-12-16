@@ -3,8 +3,6 @@ package cc.unilock.vmotd;
 import cc.unilock.vmotd.command.VmotdCommand;
 import cc.unilock.vmotd.config.Config;
 import cc.unilock.vmotd.config.Loader;
-import cc.unilock.vmotd.util.Constants;
-import cc.unilock.vmotd.util.Libraries;
 import cc.unilock.vmotd.util.Placeholders;
 import com.google.inject.Inject;
 import com.velocitypowered.api.event.Subscribe;
@@ -23,7 +21,7 @@ import java.nio.file.Path;
         id = "vmotd",
         name = "vmotd",
         description = "/vmotd",
-        version = Constants.VERSION,
+        version = Tags.VERSION,
         authors = {"unilock"},
         dependencies = {@Dependency(id = "miniplaceholders", optional = true)}
 )
@@ -44,7 +42,6 @@ public final class Vmotd {
 
     @Subscribe
     void onProxyInitialization(final ProxyInitializeEvent event) {
-        Libraries.load(this, logger, path, proxy.getPluginManager());
         this.config = Loader.loadConfig(logger, path);
         if (this.config == null) {
             return;
